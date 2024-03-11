@@ -2,6 +2,6 @@
 """
 Created on Mon Mar 11 17:11:06 2024
 
-@author: ethan
+@author: Riley Outlaw, Ethan Stewart
 """
 
