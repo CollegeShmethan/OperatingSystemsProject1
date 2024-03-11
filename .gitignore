@@ -162,4 +162,5 @@ cython_debug/
 # Credentials Files (Large Files)
 credentials1.txt
 credentials2.txt
-
+hashedValues.txt
+hashedvalues.txt
