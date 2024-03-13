@@ -7,10 +7,14 @@
         </script>
     </head>
     <body>
-        <p>Please input your email and password below (case-sensitive): </p>
+        <!-- <p>Please input your email and password below (case-sensitive): </p> -->
         
-        <input id="email" type="text" value="Email"/>
-        <input id="password" type="text" value="Password"/>
-        <button onclick="sendToCookies()">Check</button>
+        <form method="POST" onload="submit()">
+            <input id="email" name="email" type="text" placeholder="Email" value=""/>
+            <input id="password" name="password" type="text" placeholder="Password" value=""/>
+            <input type="submit" value="Submit"/>
+        </form>
+        
+        <p>{{ fndMessage }}</p>
     </body>
 </html>
