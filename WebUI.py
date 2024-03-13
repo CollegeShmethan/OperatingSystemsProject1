@@ -20,7 +20,7 @@ webUI = Flask(__name__)   # Flask constructor
 def index():
     email = None
     password = None
-    foundMessage = "Awaiting Submit"
+    foundMessage = "Please Submit an Email and Password"
     if request.method == 'POST':
         email = request.form.get('email')
         password = request.form.get('password')

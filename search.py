@@ -20,7 +20,6 @@ credentials = read_credentials_from_pickle(pickled_file)
 
 # Returns a message response based on search results
 def search(email, password):
-    print(email)
     if ((not email) or (not password)):
         return "Please Submit an Email and Password"
     email = hash_data(email)
