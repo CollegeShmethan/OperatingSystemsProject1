@@ -6,13 +6,20 @@ Created on Mon Mar 11 17:29:50 2024
 """
 
 from flask import Flask, request, render_template
-from search import search
+from search import search, debug_preHashed
 webUI = Flask(__name__)   # Flask constructor
 
-# Known issue - Last message shows up on the reloaded page.
+if(debug_preHashed()):
+    debug_preH = 1
+else:
+    debug_preH = 0
 
-#   The way this is done is absolutely not safe. 
-#   All requests made are online and can be accessed maliciously. 
+#   Known issue - Last message shows up on the reloaded page.
+#   This is because the form is maintaining the information submitted,
+#   and comes from the browser, not the code.
+
+#   The way this is done in python without debug_preHashed is not secure. 
+#   A post request is made and can be accessed maliciously. 
 #   The better way to do this would be to hash 
 #   the username and password immediately upon form submission.
 
@@ -26,7 +33,7 @@ def index():
         password = request.form.get('password')
         foundMessage = search(email, password)
 
-    return render_template("index.html", fndMessage = foundMessage)
+    return render_template("index.html", fndMessage=foundMessage, preHashed = debug_preH)
 
 if __name__ == '__main__':
     webUI.run()

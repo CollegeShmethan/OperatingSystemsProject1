@@ -9,6 +9,11 @@ import pickle
 from pythonHashing import hash_data
 
 pickled_file = "hashedValues.pkl"
+debug_preHashed = True
+
+# A function to export debug_preHashed
+def debug_preHashed():
+    return debug_preHashed
 
 # Reads in a credential file from pickle
 def read_credentials_from_pickle(pickled_file):
@@ -22,8 +27,9 @@ credentials = read_credentials_from_pickle(pickled_file)
 def search(email, password):
     if ((not email) or (not password)):
         return "Please Submit an Email and Password"
-    email = hash_data(email)
-    password = hash_data(password)
+    if not debug_preHashed:
+        email = hash_data(email)
+        password = hash_data(password)
     if (email in credentials) and credentials[email] == password:
         return "Unfortunately, your information was found in the database."
     else:

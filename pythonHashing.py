@@ -29,7 +29,7 @@ def read_and_insert(file_path):
                 email, password = line.strip().split(":", 1)
                 email_hash = hash_data(email)
                 password_hash = hash_data(password)
-                credentials[email_hash] = password_hash    
+                credentials[email_hash] = password_hash
             except:
                 continue
 
